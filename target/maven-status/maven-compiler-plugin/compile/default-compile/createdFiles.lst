@@ -1,0 +1,16 @@
+sn\uasz\inscription\entities\Formation.class
+sn\uasz\inscription\dao\FormationDao.class
+sn\uasz\inscription\dao\UEDao.class
+sn\uasz\inscription\test\TestConnexionJpa.class
+sn\uasz\inscription\servlets\SupprimerEtudiantServlet.class
+sn\uasz\inscription\controller\FormationServlet.class
+sn\uasz\inscription\entities\UE.class
+sn\uasz\inscription\controller\UEServlet.class
+sn\uasz\inscription\dao\IDao.class
+sn\uasz\inscription\dao\EtudiantDao.class
+sn\uasz\inscription\entities\Etudiant.class
+sn\uasz\inscription\util\JpaUtil.class
+sn\uasz\inscription\controller\EtudiantServlet.class
+sn\uasz\inscription\servlets\ListeEtudiantsServlet.class
+sn\uasz\inscription\servlets\ModifierEtudiantServlet.class
+sn\uasz\inscription\servlets\AjouterEtudiantServlet.class

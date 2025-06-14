@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+  <servlet>
+    <description></description>
+    <display-name>EtudiantServlet</display-name>
+    <servlet-name>EtudiantServlet</servlet-name>
+    <servlet-class>sn.uasz.inscription.controller.EtudiantServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EtudiantServlet</servlet-name>
+    <url-pattern>/EtudiantServlet</url-pattern>
+  </servlet-mapping>
+  <display-name>InscriptionPedagogique</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>FormationServlet</display-name>
+    <servlet-name>FormationServlet</servlet-name>
+    <servlet-class>sn.uasz.inscription.controller.FormationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormationServlet</servlet-name>
+    <url-pattern>/FormationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UEServlet</display-name>
+    <servlet-name>UEServlet</servlet-name>
+    <servlet-class>sn.uasz.inscription.controller.UEServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UEServlet</servlet-name>
+    <url-pattern>/UEServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ModifierEtudiantServlet</display-name>
+    <servlet-name>ModifierEtudiantServlet</servlet-name>
+    <servlet-class>sn.uasz.inscription.servlets.ModifierEtudiantServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ModifierEtudiantServlet</servlet-name>
+    <url-pattern>/ModifierEtudiantServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SupprimerEtudiantServlet</display-name>
+    <servlet-name>SupprimerEtudiantServlet</servlet-name>
+    <servlet-class>sn.uasz.inscription.servlets.SupprimerEtudiantServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SupprimerEtudiantServlet</servlet-name>
+    <url-pattern>/SupprimerEtudiantServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListeEtudiantsServlet</display-name>
+    <servlet-name>ListeEtudiantsServlet</servlet-name>
+    <servlet-class>sn.uasz.inscription.servlets.ListeEtudiantsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListeEtudiantsServlet</servlet-name>
+    <url-pattern>/ListeEtudiantsServlet</url-pattern>
+  </servlet-mapping>
+  
+<servlet>
+  <servlet-name>AjouterEtudiant</servlet-name>
+  <servlet-class>sn.uasz.inscription.servlets.AjouterEtudiantServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+  <servlet-name>AjouterEtudiant</servlet-name>
+  <url-pattern>/ajouter-etudiant</url-pattern>
+</servlet-mapping>
+
+
+  
+</web-app>

@@ -1,0 +1,16 @@
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\controller\FormationServlet.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\entities\Formation.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\servlets\SupprimerEtudiantServlet.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\util\JpaUtil.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\dao\UEDao.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\entities\Etudiant.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\servlets\ListeEtudiantsServlet.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\dao\FormationDao.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\controller\EtudiantServlet.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\dao\IDao.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\dao\EtudiantDao.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\servlets\AjouterEtudiantServlet.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\controller\UEServlet.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\entities\UE.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\test\TestConnexionJpa.java
+C:\Users\pc\eclipse-workspace\InscriptionPedagogique\src\main\java\sn\uasz\inscription\servlets\ModifierEtudiantServlet.java

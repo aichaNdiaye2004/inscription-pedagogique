@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="3.0"
+    xmlns="https://jakarta.ee/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence 
+                        https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd">
+
+  <persistence-unit name="InscriptionPU" transaction-type="RESOURCE_LOCAL">
+    <!-- Scanne toutes tes entités sans les lister manuellement -->
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+    <properties>
+      <!-- JDBC : driver et URL MariaDB -->
+      <property name="jakarta.persistence.jdbc.driver" 
+                value="org.mariadb.jdbc.Driver"/>
+      <property name="jakarta.persistence.jdbc.url" 
+                value="jdbc:mariadb://localhost:3306/inscription_pedagogique?useSSL=false&amp;serverTimezone=UTC"/>
+      <property name="jakarta.persistence.jdbc.user" value="root"/>
+      <property name="jakarta.persistence.jdbc.password" value=""/>
+
+      <!-- Hibernate : dialect MariaDB, création auto des tables -->
+      <property name="hibernate.dialect" 
+                value="org.hibernate.dialect.MariaDBDialect"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.format_sql" value="true"/>
+      <property name="hibernate.cache.use_second_level_cache" value="false"/>
+    </properties>
+  </persistence-unit>
+</persistence>
