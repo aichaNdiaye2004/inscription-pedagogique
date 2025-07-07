@@ -1,38 +1,51 @@
-<%@ page import="java.util.List" %>
-<%@ page import="sn.uasz.inscription.entities.Formation" %>
-<%@ page import="sn.uasz.inscription.dao.FormationDao" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
-<%
-    FormationDao formationDao = new FormationDao();
-    List<Formation> formations = formationDao.findAll();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html>
-<head>
-    <title>Liste des formations</title>
-</head>
+<head><title>Liste des formations</title></head>
 <body>
-<h2>Formations disponibles</h2>
-<a href="index.jsp">Accueil</a> | <a href="ajouterFormation.jsp">Ajouter une formation</a>
-<table border="1" cellpadding="5">
-    <tr>
-        <th>ID</th>
-        <th>Nom (Intitulé)</th>
-        <th>Description</th>
-    </tr>
-    <% for (Formation f : formations) { %>
+<h2>Liste des formations</h2>
+
+<c:if test="${not empty message}">
+    <p style="color:green">${message}</p>
+</c:if>
+
+<a href="formations?action=add">Ajouter une nouvelle formation</a><br><br>
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+    <thead>
         <tr>
-            <td><%= f.getId() %></td>
-            <!-- Option 1: Utiliser directement getIntitule() -->
-            <td><%= f.getIntitule() %></td>
-            
-            <!-- Option 2: Utiliser getNom() si vous avez ajouté la méthode -->
-            <%-- <td><%= f.getNom() %></td> --%>
-            
-            <td><%= f.getDescription() != null ? f.getDescription() : "" %></td>
+            <th>Intitulé</th>
+            <th>Niveau</th>
+            <th>Email Responsable</th>
+            <th>UEs</th>
+            <th>Actions</th>
         </tr>
-    <% } %>
+    </thead>
+    <tbody>
+    <c:forEach var="f" items="${formations}">
+        <tr>
+            <td>${f.intitule}</td>
+            <td>${f.niveau}</td>
+            <td>${f.emailResponsable}</td>
+            <td>
+                <ul>
+                <c:forEach var="ue" items="${f.ues}">
+                    <li>${ue.nom} (${ue.code}) - Coeff: ${ue.coefficient}</li>
+                </c:forEach>
+                </ul>
+            </td>
+            <td>
+                <a href="formations?action=edit&id=${f.id}">Modifier</a> |
+                <a href="formations?action=delete&id=${f.id}"
+                   onclick="return confirm('Confirmer la suppression ?');">Supprimer</a>
+            </td>
+        </tr>
+    </c:forEach>
+    </tbody>
 </table>
+
+
 </body>
 </html>

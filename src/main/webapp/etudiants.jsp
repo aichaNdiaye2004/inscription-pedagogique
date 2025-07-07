@@ -1,5 +1,6 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 
 <html>
 <head>
@@ -21,6 +22,7 @@
         <th>Groupe TD</th>
         <th>Groupe TP</th>
         <th>Formation</th>
+        <th>UEs optionnelles</th> <!-- Colonne ajoutée -->
         <th>Actions</th>
     </tr>
     <c:forEach var="e" items="${etudiants}">
@@ -33,7 +35,7 @@
             <td>
                 <c:choose>
                     <c:when test="${not empty e.dateNaissance}">
-                        <fmt:formatDate value="${e.dateNaissance}" pattern="dd/MM/yyyy"/>
+                        ${e.dateNaissanceStr}
                     </c:when>
                     <c:otherwise></c:otherwise>
                 </c:choose>
@@ -85,9 +87,22 @@
             </td>
 
             <td>
+                <c:if test="${not empty e.uesOptionnelles}">
+                    <ul>
+                        <c:forEach var="ue" items="${e.uesOptionnelles}">
+                            <li>${ue.libelle}</li>
+                        </c:forEach>
+                    </ul>
+                </c:if>
+                <c:if test="${empty e.uesOptionnelles}">
+                    Aucune UE choisie
+                </c:if>
+            </td>
+
+            <td>
                 <a href="modifier-etudiant?ine=${e.ine}">Modifier</a> |
                 <a href="${pageContext.request.contextPath}/supprimer-etudiant?ine=${e.ine}" 
-                    onclick="return confirm('Voulez-vous vraiment supprimer cet étudiant ?');">Supprimer</a>
+                   onclick="return confirm('Voulez-vous vraiment supprimer cet étudiant ?');">Supprimer</a>
             </td>
         </tr>
     </c:forEach>

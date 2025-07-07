@@ -6,7 +6,7 @@
   <title>Erreur Technique</title>
   <style>
     body { font-family: sans-serif; background: #fee; padding: 20px; }
-    pre { background: #fff; padding: 10px; border: 1px solid #ddd; overflow: auto; }
+    pre { background: #fff; padding: 10px; border: 1px solid #ddd; overflow: auto; white-space: pre-wrap; }
   </style>
 </head>
 <body>
@@ -15,9 +15,7 @@
 
   <c:if test="${not empty exception}">
     <h2>Détails de l’exception :</h2>
-    <pre>
-      <% exception.printStackTrace(new java.io.PrintWriter(out)); %>
-    </pre>
+    <pre><%= exception != null ? exception.toString() : "" %></pre>
   </c:if>
 
   <p><a href="${pageContext.request.contextPath}/liste-etudiants">Retour à la liste</a></p>

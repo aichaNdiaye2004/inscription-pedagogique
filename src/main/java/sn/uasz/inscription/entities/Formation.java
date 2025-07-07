@@ -1,44 +1,40 @@
 package sn.uasz.inscription.entities;
 
 import jakarta.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "formations")
+@Table(name = "formation")
 public class Formation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String intitule;
-
-    @Column(length = 50)
     private String niveau;
 
-    private String description;
+    @Column(name = "nom_responsable")
+    private String nomResponsable;
 
-    @Column(name = "responsable_nom")
-    private String responsable;
-
-    @Column(name = "responsable_email")
+    @Column(name = "email_responsable")
     private String emailResponsable;
 
-    @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL)
-    private List<Etudiant> etudiants;
+    @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Etudiant> etudiants = new HashSet<>();
 
-    // 🔹 Constructeurs
-    public Formation() {}
+    @OneToMany(mappedBy = "formation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<UE> ues = new HashSet<>();
 
-    public Formation(String intitule, String niveau) {
-        this.intitule = intitule;
-        this.niveau = niveau;
-    }
+    // --- Getters et Setters ---
 
-    // 🔹 Getters et Setters
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIntitule() {
@@ -57,20 +53,12 @@ public class Formation {
         this.niveau = niveau;
     }
 
-    public String getDescription() {
-        return description;
+    public String getNomResponsable() {
+        return nomResponsable;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getResponsable() {
-        return responsable;
-    }
-
-    public void setResponsable(String responsable) {
-        this.responsable = responsable;
+    public void setNomResponsable(String nomResponsable) {
+        this.nomResponsable = nomResponsable;
     }
 
     public String getEmailResponsable() {
@@ -81,16 +69,51 @@ public class Formation {
         this.emailResponsable = emailResponsable;
     }
 
-    public List<Etudiant> getEtudiants() {
+    public Set<Etudiant> getEtudiants() {
         return etudiants;
     }
-
-    public void setEtudiants(List<Etudiant> etudiants) {
+    public void setEtudiants(Set<Etudiant> etudiants) {
         this.etudiants = etudiants;
+        for (Etudiant e : etudiants) {
+            e.setFormation(this);
+        }
     }
 
-    // 🔹 Méthodes utilitaires (optionnel)
-    public String getNom() {
-        return intitule;
+
+    public void addEtudiant(Etudiant e) {
+        etudiants.add(e);
+        e.setFormation(this);
+    }
+
+    public void removeEtudiant(Etudiant e) {
+        etudiants.remove(e);
+        e.setFormation(null);
+    }
+
+    public Set<UE> getUes() {
+        return ues;
+    }
+
+    public void setUes(Set<UE> ues) {
+        this.ues = ues;
+        for (UE ue : ues) {
+            ue.setFormation(this);
+        }
+    }
+
+
+    public void addUE(UE ue) {
+        ues.add(ue);
+        ue.setFormation(this);
+    }
+
+    public void removeUE(UE ue) {
+        ues.remove(ue);
+        ue.setFormation(null);
+    }
+
+    @Override
+    public String toString() {
+        return intitule + " (" + niveau + ")";
     }
 }
